@@ -105,8 +105,8 @@ def merge_sort(array)
 	return array if array.length == 1
 
 	mid = array.length / 2
-	left = array[0..mid]
-	right = array[(mid+ 1) ..-1]
+	left = array[0...mid]
+	right = array[mid..-1]
 
 	# arr = [left, right] # left and right halves
 	left_merge = merge_sort(left)
@@ -124,6 +124,13 @@ def merge(arr_1, arr_2)
 		combined.delete_at(combined.index(combined.min))
 	end
 	results
+	"""Flextime solution
+		sorted = []
+		while !(arr_1.empty? || arr_2.empty?)
+			arr_1[0] >= arr_2[0] ? sorted << arr.shift : sorted arr_1.shift
+		end
+		sorted + arr_1 + arr_2
+	"""
 end
 p merge_sort([38, 27, 43, 3, 9, 82, 10])
 
