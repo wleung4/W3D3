@@ -108,12 +108,10 @@ def merge_sort(array)
 	left = array[0..mid]
 	right = array[(mid+ 1) ..-1]
 
-	arr = []
-	arr << left #halved array
-	arr << right
-	merge_sort(left)
-	merge_sort(right)
-	merge(left, right)
+	# arr = [left, right] # left and right halves
+	left_merge = merge_sort(left)
+	right_merge = merge_sort(right)
+	merge(left_merge, right_merge) #merge halves
 end
 
 def merge(arr_1, arr_2)
